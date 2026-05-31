@@ -68,7 +68,7 @@ function TinhDiem() {
   document.getElementById("dgnlConverted").textContent = DGNL.toFixed(2);
   document.getElementById("thptConverted").textContent = THPT.toFixed(2);
   document.getElementById("hocbaConverted").textContent = HB.toFixed(2);
-  document.getElementById("totalScore").textContent = DiemNL.toFixed(2) + "/100";
+  document.getElementById("totalScore").textContent = DiemNL.toFixed(2);
   document.getElementById("diemcong").textContent = bonus.toFixed(2);
   document.getElementById("diemkv").textContent = KV.toFixed(2);
   document.getElementById("uuTien").textContent = DT.toFixed(2);

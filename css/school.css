@@ -8,30 +8,30 @@
 }
 
 :root {
-  --primary:        #5b50e8;
-  --primary-dark:   #4740c4;
-  --primary-light:  #ede9ff;
-  --danger:         #ef4444;
-  --bg:             linear-gradient(145deg, #f0eeff 0%, #e8e4ff 30%, #ede9ff 60%, #f5f0ff 100%);
-  --surface:        #ffffff;
-  --border:         #e2e5f1;
-  --text-primary:   #1a1d2e;
-  --text-secondary: #6b7280;
-  --text-muted:     #a0a6b8;
-  --shadow-card:    0 4px 20px rgba(91,80,232,0.10), 0 1px 4px rgba(91,80,232,0.06);
-  --shadow-summary: 0 8px 32px rgba(91,80,232,0.15), 0 2px 8px rgba(91,80,232,0.08);
-  --radius-card:    18px;
-  --radius-input:   10px;
-  --font-main:      'Be Vietnam Pro', sans-serif;
-  --font-display:   'Sora', sans-serif;
-  --nav-h:          60px;
+  --primary:       #5b50e8;
+  --primary-dark:  #4740c4;
+  --primary-light: #ede9ff;
+  --accent:        #f59e42;
+  --bg:            #f0f2fa;
+  --surface:       #ffffff;
+  --border:        #e2e5f1;
+  --text-primary:  #1a1d2e;
+  --text-secondary:#6b7280;
+  --text-muted:    #a0a6b8;
+  --shadow-sm:     0 2px 8px rgba(91,80,232,0.07);
+  --shadow-md:     0 6px 24px rgba(91,80,232,0.13);
+  --radius-card:   20px;
+  --radius-btn:    12px;
+  --font-main:     'Be Vietnam Pro', sans-serif;
+  --font-display:  'Sora', sans-serif;
+  --nav-h:         60px;
 }
 
 html { scroll-behavior: smooth; }
 
 body {
   font-family: var(--font-main);
-  background: var(--bg);
+  background: linear-gradient(145deg, #f0eeff 0%, #e8e4ff 30%, #ede9ff 60%, #f5f0ff 100%);
   color: var(--text-primary);
   min-height: 100vh;
   display: flex;
@@ -42,8 +42,9 @@ body {
    NAVBAR
 =========================== */
 a.nav-logo {
-    text-decoration: none !important;
+  text-decoration: none !important;
 }
+
 .navbar {
   position: sticky;
   top: 0;
@@ -145,7 +146,7 @@ a.nav-logo {
   max-width: 1100px;
   width: 100%;
   margin: 0 auto;
-  padding: 16px 24px 48px;
+  padding: 24px 24px 48px;
   display: flex;
   gap: 24px;
   align-items: flex-start;
@@ -159,45 +160,96 @@ a.nav-logo {
   flex-shrink: 0;
   background: var(--surface);
   border-radius: var(--radius-card);
-  padding: 24px 20px;
-  box-shadow: var(--shadow-sm);
+  padding: 10px 10px;
+  box-shadow: var(--shadow-summary);
   border: 1.5px solid rgba(91, 80, 232, 0.10);
   position: sticky;
   top: calc(var(--nav-h) + 16px);
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
+  overflow: hidden;
+}
+
+/* Score hero block */
+.score-hero {
+  background: linear-gradient(
+      145deg,
+      #c7c0ff 0%,
+      #a99ef5 50%,
+      #b8b0ff 100%
+  );
+
+  padding: 22px 20px 20px;
+  text-align: center;
+
+  border-radius: 18px 18px 0 0;
+}
+
+.score-hero-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: rgba(60, 40, 150, 0.7);
+  margin-bottom: 8px;
+}
+
+.score-hero-value {
+  font-family: var(--font-display);
+  font-size: 50px;
+  font-weight: 700;
+  color: #2d2470;
+  line-height: 1;
+  letter-spacing: -1px;
+  transition: all 0.3s;
+}
+
+.score-hero-denom {
+  font-size: 18px;
+  font-weight: 400;
+  opacity: 0.55;
+  margin-left: 2px;
+}
+
+.score-hero-badge {
+  display: inline-block;
+  margin-top: 10px;
+  background: rgba(255, 255, 255, 0.45);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  border-radius: 20px;
+  padding: 3px 12px;
+  font-size: 11px;
+  font-weight: 600;
+  color: #3c3489;
+}
+
+/* Score body */
+.score-body {
+  padding: 16px 18px 0;
 }
 
 .summary-label {
-  font-size: 13px;
-  font-weight: 600;
-  color: var(--text-secondary);
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-}
-
-.summary-score {
-  font-family: var(--font-display);
-  font-size: 36px;
+  font-size: 11px;
   font-weight: 700;
-  color: var(--primary);
-  line-height: 1.1;
-  margin: 6px 0 14px;
-  transition: all 0.3s;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  margin-bottom: 10px;
 }
 
 .summary-breakdown {
   display: flex;
   flex-direction: column;
-  gap: 6px;
 }
 
 .breakdown-row {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 6px;
+  padding: 6px 0;
+  border-bottom: 1px solid #f0f2fa;
+}
+
+.breakdown-row:last-child {
+  border-bottom: none;
 }
 
 .breakdown-key {
@@ -207,20 +259,55 @@ a.nav-logo {
 }
 
 .breakdown-val {
-  font-size: 13px;
+  font-size: 12.5px;
   font-weight: 600;
   color: var(--text-primary);
   white-space: nowrap;
 }
 
+.breakdown-val.empty {
+  color: var(--text-muted);
+  font-weight: 400;
+}
+
 .summary-divider {
   height: 1px;
   background: var(--border);
-  margin: 8px 0;
+  margin: 12px 18px;
+}
+
+/* Bonus row */
+.bonus-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--primary-light);
+  border-radius: 8px;
+  padding: 8px 12px;
+  margin: 0 18px;
+}
+
+.bonus-row-key {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--primary-dark);
+}
+
+.bonus-row-val {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--primary);
+}
+
+/* Buttons */
+.btn-area {
+  padding: 14px 18px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
 }
 
 .calc-btn {
-  margin-top: 16px;
   width: 100%;
   height: 42px;
   background: var(--primary);
@@ -232,13 +319,13 @@ a.nav-logo {
   font-weight: 600;
   cursor: pointer;
   transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
-  box-shadow: 0 3px 12px rgba(91,80,232,0.28);
+  box-shadow: 0 3px 12px rgba(91,80,232,0.35);
 }
 
 .calc-btn:hover {
   background: var(--primary-dark);
   transform: translateY(-1px);
-  box-shadow: 0 5px 16px rgba(91,80,232,0.36);
+  box-shadow: 0 5px 16px rgba(91,80,232,0.4);
 }
 
 .calc-btn:active { transform: translateY(0); }
@@ -255,7 +342,6 @@ a.nav-logo {
   font-weight: 500;
   cursor: pointer;
   transition: all 0.2s;
-  margin-top: 6px;
 }
 
 .reset-btn:hover {
@@ -298,10 +384,11 @@ a.nav-logo {
   background: var(--surface);
   border-radius: var(--radius-card);
   padding: 24px 28px;
-  box-shadow: var(--shadow-sm);
-  border: 1.5px solid var(--border);
+  box-shadow: var(--shadow-card);
+  border: 1.5px solid rgba(91, 80, 232, 0.08);
 }
 
+/* Panel title with underline breaker */
 .panel-title {
   font-family: var(--font-display);
   font-size: 1.15rem;
@@ -370,16 +457,14 @@ a.nav-logo {
   font-size: 14px;
   color: var(--text-primary);
   outline: none;
-  transition: border-color 0.2s, box-shadow 0.2s, background 0.2s;
+  transition: border-color 0.2s, box-shadow 0.2s;
   width: 100%;
 }
-
 
 .score-input::placeholder { color: var(--text-muted); }
 
 .score-input:focus {
   border-color: var(--primary);
-  background: var(--surface);
   box-shadow: 0 0 0 3px rgba(91,80,232,0.1);
 }
 
@@ -397,7 +482,7 @@ a.nav-logo {
   background-repeat: no-repeat;
   background-position: right 12px center;
   background-color: #ffffff;
-  padding-right: 37px;
+  padding-right: 36px;
 }
 
 .score-input.error {
@@ -427,7 +512,7 @@ a.nav-logo {
   padding: 12px 16px;
   border: 1.5px solid var(--border);
   border-radius: var(--radius-input);
-  background: #fafbff;
+  background: #ffffff;
   transition: border-color 0.2s, background 0.2s;
 }
 
@@ -469,8 +554,8 @@ a.nav-logo {
 
 .hocba-table thead th {
   font-size: 13px;
-  font-weight: semi-bold;
-  color: black;
+  font-weight: 600;
+  color: var(--text-secondary);
   text-align: center;
   padding-bottom: 12px;
   border-bottom: 1.5px solid var(--border);
@@ -502,8 +587,8 @@ a.nav-logo {
 
 .row-label {
   font-size: 13.5px;
-  font-weight: semi-bold;
-  color: black;
+  font-weight: 600;
+  color: var(--text-primary);
   display: flex;
   align-items: center;
   gap: 6px;
@@ -527,7 +612,7 @@ a.nav-logo {
 }
 
 /* ===========================
-   ICON WRAP (School cards)
+   ICON WRAP
 =========================== */
 .icon-wrap {
   width: 64px;
@@ -593,23 +678,23 @@ a.nav-logo {
   }
 
   .score-summary {
-    width: 100%;
-    position: static;
-    flex-direction: row;
-    flex-wrap: wrap;
-    gap: 12px;
-    align-items: center;
+  width: 260px;
+  padding: 0;
+  overflow: hidden;
+}
+
+  .score-hero-value {
+    font-size: 40px;
   }
 
-  .summary-score {
-    margin: 0;
-    font-size: 28px;
+  .btn-area {
+    flex-direction: row;
+    flex-wrap: wrap;
   }
 
   .calc-btn, .reset-btn {
     flex: 1;
     min-width: 120px;
-    margin-top: 0;
   }
 
   .panel-grid.two-col {

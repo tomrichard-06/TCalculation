@@ -151,7 +151,7 @@ function calculateUHS() {
     document.getElementById("bonusScore").textContent = DC.toFixed(1);
 
     let Res = DGNL * 0.4 + THPT * 0.35 + HB * 0.25 + DC;
-    document.getElementById("totalScore").textContent = Res.toFixed(1) + "/100";
+    document.getElementById("totalScore").textContent = Res.toFixed(1);
 }
 
 document.getElementById("calcBtn").addEventListener("click", calculateUHS);

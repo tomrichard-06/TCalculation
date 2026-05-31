@@ -51,7 +51,7 @@ function TinhDiem() {
     document.getElementById("bonusScore").textContent = DC.toFixed(2);
 
     let totalScore = Math.max(HLDGNL, HLTHPT) + DC;
-    document.getElementById("totalScore").textContent = totalScore.toFixed(2) + "/30";
+    document.getElementById("totalScore").textContent = totalScore.toFixed(2);
 }
 
 document.getElementById("calcBtn").addEventListener("click", TinhDiem);

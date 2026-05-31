@@ -39,56 +39,101 @@
 
         <!-- LEFT: Score Summary -->
         <aside class="score-summary">
-            <p class="summary-label">Điểm xét tuyển</p>
-            <div class="summary-score" id="totalScore">--/100</div>
 
-            <div class="summary-breakdown">
-                <div class="breakdown-row">
-                    <span class="breakdown-key">Điểm ĐGNL quy đổi:</span>
-                    <span class="breakdown-val" id="dgnlConverted">--</span>
-                </div>
-                <div class="breakdown-row">
-                    <span class="breakdown-key">Điểm THPT quy đổi:</span>
-                    <span class="breakdown-val" id="thptConverted">--</span>
-                </div>
-                <div class="breakdown-row">
-                    <span class="breakdown-key">Điểm học bạ THPT quy đổi:</span>
-                    <span class="breakdown-val" id="hocbaConverted">--</span>
-                </div>
-                <div class="breakdown-row">
-                    <span class="breakdown-key">Điểm cộng ngoại ngữ:</span>
-                    <span class="breakdown-val" id="diemcongnn">--</span>
-                </div>
-                <div class="breakdown-row">
-                    <span class="breakdown-key">Điểm cộng SAT:</span>
-                    <span class="breakdown-val" id="diemcongSAT">--</span>
-                </div>
-                <div class="breakdown-row">
-                    <span class="breakdown-key">Điểm cộng HSG:</span>
-                    <span class="breakdown-val" id="diemcongHSG">--</span>
-                </div>
-                <div class="breakdown-row">
-                    <span class="breakdown-key">Điểm cộng khu vực:</span>
-                    <span class="breakdown-val" id="diemkv">--</span>
-                </div>
-                <div class="breakdown-row">
-                    <span class="breakdown-key">Điểm ưu tiên:</span>
-                    <span class="breakdown-val" id="uuTien">--</span>
-                </div>
+    <!-- Hero -->
+    <div class="score-hero">
+        <div class="score-hero-label">
+            ĐIỂM XÉT TUYỂN
+        </div>
+
+        <div class="score-hero-value">
+            <span id="totalScore">--</span>
+            <span class="score-hero-denom">/100</span>
+        </div>
+
+        <div class="score-hero-badge" id="scoreStatus">
+            Chưa tính
+        </div>
+    </div>
+
+    <!-- Body -->
+    <div class="score-body">
+
+        <div class="summary-label">
+            CHI TIẾT
+        </div>
+
+        <div class="summary-breakdown">
+
+            <div class="breakdown-row">
+                <span class="breakdown-key">ĐGNL quy đổi</span>
+                <span class="breakdown-val empty" id="dgnlConverted">--</span>
             </div>
 
-            <div class="summary-divider"></div>
-
-            <div class="summary-breakdown">
-                <div class="breakdown-row">
-                    <span class="breakdown-key">Tổng điểm cộng:</span>
-                    <span class="breakdown-val" id="bonusScore">0</span>
-                </div>
+            <div class="breakdown-row">
+                <span class="breakdown-key">THPT quy đổi</span>
+                <span class="breakdown-val empty" id="thptConverted">--</span>
             </div>
 
-            <button class="calc-btn" id="calcBtn">Tính điểm</button>
-            <button class="reset-btn" id="resetBtn">Làm lại</button>
-        </aside>
+            <div class="breakdown-row">
+                <span class="breakdown-key">Học bạ quy đổi</span>
+                <span class="breakdown-val empty" id="hocbaConverted">--</span>
+            </div>
+
+            <div class="breakdown-row">
+                <span class="breakdown-key">Ngoại ngữ</span>
+                <span class="breakdown-val empty" id="diemcongnn">--</span>
+            </div>
+
+            <div class="breakdown-row">
+                <span class="breakdown-key">SAT</span>
+                <span class="breakdown-val empty" id="diemcongSAT">--</span>
+            </div>
+
+            <div class="breakdown-row">
+                <span class="breakdown-key">HSG</span>
+                <span class="breakdown-val empty" id="diemcongHSG">--</span>
+            </div>
+
+            <div class="breakdown-row">
+                <span class="breakdown-key">Khu vực</span>
+                <span class="breakdown-val empty" id="diemkv">--</span>
+            </div>
+
+            <div class="breakdown-row">
+                <span class="breakdown-key">Ưu tiên</span>
+                <span class="breakdown-val empty" id="uuTien">--</span>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="summary-divider"></div>
+
+    <!-- Bonus -->
+    <div class="bonus-row">
+        <span class="bonus-row-key">
+            Tổng điểm cộng
+        </span>
+
+        <span class="bonus-row-val" id="bonusScore">
+            +0
+        </span>
+    </div>
+
+    <!-- Buttons -->
+    <div class="btn-area">
+        <button class="calc-btn" id="calcBtn">
+            Tính điểm
+        </button>
+
+        <button class="reset-btn" id="resetBtn">
+            Làm lại
+        </button>
+    </div>
+
+</aside>
 
         <div class="panels">
             <!-- Panel 1: Điểm ĐGNL -->
@@ -273,9 +318,11 @@
         </div>
     </main>
 
-    <footer class="footer">
-        <p>© 2026 TSchool · Công cụ tính điểm xét tuyển đại học</p>
-    </footer>
+    <!-- Footer -->
+  <footer class="footer">
+    <p>© 2026 TCalculation · Công cụ tính điểm xét tuyển đại học</p>
+    <p>Trang web chỉ là công cụ tham khảo, không thay thế cho thông tin chính thức từ các trường đại học.</p>
+  </footer>
 
     <script src="../js/UHS.js"></script>
 </body>
