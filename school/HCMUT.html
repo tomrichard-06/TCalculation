@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Trường Đại học Bách Khoa - HCMUT</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&family=Sora:wght@400;600;700&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="../css/school.css" />
+</head>
+
+<style>
+  #panel {
+    display: none;
+  }
+</style>
+
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="nav-logo">
+      <span class="logo-icon">T</span>
+      <span class="logo-text">Calculation</span>
+    </div>
+    <a href="../index.html" class="nav-back">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+        stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="15 18 9 12 15 6"></polyline>
+      </svg>
+      Quay lại
+    </a>
+  </nav>
+
+  <!-- Page Title -->
+  <div class="page-header">
+    <h1 class="page-title">Trường Đại học Bách Khoa - HCMUT</h1>
+  </div>
+
+  <!-- Main Layout -->
+  <main class="main">
+
+    <!-- LEFT: Score Summary -->
+    <aside class="score-summary">
+      <p class="summary-label">Điểm xét tuyển</p>
+      <div class="summary-score" id="totalScore">--/100</div>
+
+      <div class="summary-breakdown">
+        <div class="breakdown-row">
+          <span class="breakdown-key">Điểm ĐGNL quy đổi:</span>
+          <span class="breakdown-val" id="dgnlConverted">--</span>
+        </div>
+        <div class="breakdown-row">
+          <span class="breakdown-key">Điểm THPT quy đổi:</span>
+          <span class="breakdown-val" id="thptConverted">--</span>
+        </div>
+        <div class="breakdown-row">
+          <span class="breakdown-key">Điểm học bạ THPT quy đổi:</span>
+          <span class="breakdown-val" id="hocbaConverted">--</span>
+        </div>
+        <div class="breakdown-row">
+          <span class="breakdown-key">Điểm cộng:</span>
+          <span class="breakdown-val" id="diemcong">--</span>
+        </div>
+        <div class="breakdown-row">
+          <span class="breakdown-key">Điểm ưu tiên:</span>
+          <span class="breakdown-val" id="uuTien">--</span>
+        </div>
+        <div class="breakdown-row">
+          <span class="breakdown-key">Điểm khu vực:</span>
+          <span class="breakdown-val" id="diemkv">--</span>
+        </div>
+      </div>
+
+      <div class="summary-divider"></div>
+
+      <div class="summary-breakdown">
+        <div class="breakdown-row">
+          <span class="breakdown-key">Tổng điểm cộng:</span>
+          <span class="breakdown-val" id="bonusScore">0</span>
+        </div>
+      </div>
+
+      <button class="calc-btn" id="calcBtn">Tính điểm</button>
+      <button class="reset-btn" id="resetBtn">Làm lại</button>
+    </aside>
+
+    <!-- RIGHT: Input Panels -->
+    <div class="panels">
+      <section class="panel">
+        <h2 class="doituong">Đối tượng</h2>
+        <div class="input-group"><br>
+          <select class="score-input select-input" id="doituong">
+            <option value="2">Không thi ĐGNL</option>
+            <option value="1">Có thi ĐGNL</option>
+          </select>
+      </section>
+
+      <!-- Panel 1: Điểm ĐGNL -->
+      <section class="panel" id="panel">
+        <h2 class="panel-title">Điểm ĐGNL</h2>
+        <div class="panel-grid two-col">
+          <div class="input-group">
+            <label class="input-label">Tiếng Việt</label>
+            <input type="number" class="score-input" id="dgnl_viet" placeholder="0 – 300" min="0" max="300" />
+          </div>
+          <div class="input-group">
+            <label class="input-label">Tiếng Anh</label>
+            <input type="number" class="score-input" id="dgnl_anh" placeholder="0 – 300" min="0" max="300" />
+          </div>
+          <div class="input-group">
+            <label class="input-label">Toán <span class="weight-tag">×2</span></label>
+            <input type="number" class="score-input" id="dgnl_toan" placeholder="0 – 300" min="0" max="300" />
+          </div>
+          <div class="input-group">
+            <label class="input-label">Tư duy khoa học</label>
+            <input type="number" class="score-input" id="dgnl_tdkh" placeholder="0 – 300" min="0" max="300" />
+          </div>
+        </div>
+      </section>
+
+      <!-- Panel 2: Điểm THPT -->
+      <section class="panel">
+        <h2 class="panel-title">Điểm THPT</h2>
+        <div class="panel-grid two-col">
+          <div class="input-group">
+            <label class="input-label">Toán <span class="weight-tag">×2</span></label>
+            <input type="number" class="score-input" id="TNToan" placeholder="0 – 10" min="0" max="10" step="0.1" />
+          </div>
+          <div class="input-group">
+            <label class="input-label">Môn 2</label>
+            <input type="number" class="score-input" id="TNMon2" placeholder="0 – 10" min="0" max="10" step="0.1" />
+          </div>
+          <div class="input-group">
+            <label class="input-label">Môn 3</label>
+            <input type="number" class="score-input" id="TNMon3" placeholder="0 – 10" min="0" max="10" step="0.1" />
+          </div>
+        </div>
+      </section>
+
+      <!-- Panel 3: Điểm học bạ -->
+      <section class="panel">
+        <h2 class="panel-title">Điểm học bạ</h2>
+        <div class="hocba-table-wrap">
+          <table class="hocba-table">
+            <thead>
+              <tr>
+                <th></th>
+                <th>Lớp 10</th>
+                <th>Lớp 11</th>
+                <th>Lớp 12</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="row-label">Toán <span class="weight-tag">×2</span></td>
+                <td><input type="number" class="score-input compact" id="hb_toan_10" placeholder="0–10" min="0" max="10"
+                    step="0.1" /></td>
+                <td><input type="number" class="score-input compact" id="hb_toan_11" placeholder="0–10" min="0" max="10"
+                    step="0.1" /></td>
+                <td><input type="number" class="score-input compact" id="hb_toan_12" placeholder="0–10" min="0" max="10"
+                    step="0.1" /></td>
+              </tr>
+              <tr>
+                <td class="row-label">Môn 2</td>
+                <td><input type="number" class="score-input compact" id="hb_mon2_10" placeholder="0–10" min="0" max="10"
+                    step="0.1" /></td>
+                <td><input type="number" class="score-input compact" id="hb_mon2_11" placeholder="0–10" min="0" max="10"
+                    step="0.1" /></td>
+                <td><input type="number" class="score-input compact" id="hb_mon2_12" placeholder="0–10" min="0" max="10"
+                    step="0.1" /></td>
+              </tr>
+              <tr>
+                <td class="row-label">Môn 3</td>
+                <td><input type="number" class="score-input compact" id="hb_mon3_10" placeholder="0–10" min="0" max="10"
+                    step="0.1" /></td>
+                <td><input type="number" class="score-input compact" id="hb_mon3_11" placeholder="0–10" min="0" max="10"
+                    step="0.1" /></td>
+                <td><input type="number" class="score-input compact" id="hb_mon3_12" placeholder="0–10" min="0" max="10"
+                    step="0.1" /></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- Panel 4: Điểm cộng & KV -->
+      <section class="panel panel-bonus">
+        <div class="bonus-col">
+          <h2 class="panel-title">Điểm cộng</h2>
+          <div class="input-group">
+            <label class="input-label">Chứng chỉ / Giải thưởng</label>
+            <input type="number" class="score-input" id="bonus1" placeholder="0" min="0" max="10" step="0.5" />
+          </div>
+        </div>
+        <div class="bonus-col">
+          <h2 class="panel-title">Điểm KV</h2>
+          <select class="score-input select-input" id="kv">
+            <option value="0">KV3</option>
+            <option value="2.5">KV1 (+2.5)</option>
+            <option value="1.67">KV2-NT (+1.67)</option>
+            <option value="0.83">KV2 (+0.83)</option>
+          </select>
+        </div>
+        <div class="bonus-col">
+          <h2 class="panel-title">Đối tượng (Chính sách)</h2>
+          <select class="score-input select-input" id="doituongcs">
+            <option value="0">Không có ưu tiên</option>
+            <option value="3.33">Nhóm UT1 (DDT1..4)</option>
+            <option value="6.67">Nhóm UT2 (DDT5..7)</option>
+          </select>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <footer class="footer">
+    <p>© 2026 TSchool · Công cụ tính điểm xét tuyển đại học</p>
+  </footer>
+
+  <script src="../js/HCMUT.js"></script>
+</body>
+
+</html>
